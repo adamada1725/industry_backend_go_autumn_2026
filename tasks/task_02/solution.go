@@ -1,5 +1,14 @@
 package main
 
 func rotateRunes(s string, shift int) string {
-	panic("TODO: implement")
+	runes := []rune(s)
+	n := len(runes)
+	if n == 0 {
+		return s
+	}
+	shift = shift % n
+	if shift < 0 {
+		shift += n
+	}
+	return string(append(runes[shift:], runes[:shift]...))
 }
